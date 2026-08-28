@@ -17,7 +17,7 @@ const allowedOrigins = [process.env.CLIENT_URL || 'http://localhost:5173']
 
 app.use(cors({ origin(origin, callback) { if (!origin || allowedOrigins.includes(origin)) return callback(null, true); return callback(new Error('Origin not allowed by CORS')) }, credentials: true }))
 app.use(express.json({ limit: '1mb' }))
-app.get('/', (req, res) => res.json({ service: 'NovaNexus API', health: '/api/health' }))
+app.get('/', (req, res) => res.json({ service: 'NovaNexus API', status: 'running' }))
 app.get('/api/health', (req, res) => res.json({ status: 'ok', service: 'NovaNexus API', version: '1.0.0' }))
 app.use('/api/auth', auth)
 app.use('/api/instruments', requireAuth, instruments)
