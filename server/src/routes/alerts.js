@@ -1,0 +1,1 @@
+import {Router} from 'express';import db from '../database/db.js';const router=Router();router.get('/',(req,res)=>res.json(db.prepare('SELECT id,level,message,acknowledged,created_at AS createdAt FROM alerts ORDER BY created_at DESC').all()));export default router

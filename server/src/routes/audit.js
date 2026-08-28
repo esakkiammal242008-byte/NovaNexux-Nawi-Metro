@@ -1,0 +1,1 @@
+import {Router} from 'express';import db from '../database/db.js';const router=Router();router.get('/',(req,res)=>res.json(db.prepare('SELECT a.id,a.timestamp,u.email AS user,a.action,a.entity,a.details FROM audit_logs a LEFT JOIN users u ON u.id=a.user_id ORDER BY a.timestamp DESC').all()));export default router

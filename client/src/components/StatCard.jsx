@@ -1,0 +1,2 @@
+import { ArrowUpRight } from 'lucide-react'
+export default function StatCard({ label, value, note, icon: Icon, accent }) { return <div className={`stat-card ${accent || ''}`}><div className="stat-head"><span>{label}</span><div className="stat-icon"><Icon size={18} /></div></div><strong className="stat-value">{value}</strong><div className="stat-note"><ArrowUpRight size={13} /> {note}</div></div> }
